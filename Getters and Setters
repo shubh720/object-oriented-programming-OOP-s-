@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class student{
+ private : // by default private , no need to declare
+  
+   int age = 10;
+
+ public :
+  string name;
+  int roll_no;
+
+ // getter function : helps in getting values of privately declared DT
+ int getValue(){
+     return age;
+ }
+
+// setter function : to set values be it public or private
+ void setValue(string name,int age,int roll_no){
+     this->name = name;
+     this->age = age;
+     this->roll_no = roll_no;
+ }
+
+ void display(){
+   cout<< name <<" " << age <<" " << roll_no <<endl; 
+ }
+
+};
+
+int main(){
+
+ student s1;                 // static memory allocation
+ student *s2 = new student;  // dynamic allocation
+
+ cout<< s1.getValue() <<endl;
+
+ s1.setValue("shubh",20,40);
+ s2->setValue("kumar",10,50);
+
+ s1.display();
+ (*s2).display();
+
+  return 0; 
+}

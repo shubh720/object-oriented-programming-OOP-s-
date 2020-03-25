@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+class student{
+ public :
+  int age;
+  int roll_no;
+
+  student(){
+
+  }
+  student(int age,int roll_no){
+      this->age = age;
+      this->roll_no = roll_no;
+  }
+
+  void display(){
+    cout<< "AGE : "<< age <<" "<< "ROLL NO : "<< roll_no <<endl; 
+  }
+
+};
+
+int main(){
+
+ student s(10,100);
+ s.display();
+ 
+// copy assignment operator
+// static
+ student s1(20,200);
+ s1.display();
+ s1 = s;
+ s1.display(); 
+
+ // dynamic memory allocation
+  student *s2 = new student;
+  *s2 = s1; 
+  (*s2).display();
+
+   return 0; 
+}

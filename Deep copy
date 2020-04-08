@@ -1,0 +1,47 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class student{
+  
+  int age = 10;
+  int roll_no;
+  char *name;
+
+ public :
+   student(int age,int roll_no,char *name){
+       this -> age = age;        
+       this -> roll_no = roll_no;
+
+       // shallow copy used ***
+       //this -> name = name;
+   
+     // deep copy
+     this -> name = new char[strlen(name) + 1];
+     strcpy(this-> name ,name);
+  
+   }
+
+   void display(){
+       cout<< age <<" "<< roll_no <<" "<< name <<endl;
+   }
+ 
+};
+
+int main() {
+  
+ char name[] = "abcd"; 
+ student *s = new student(10,100,name);  // dynamically
+  
+  cout << s <<endl;
+  s->display();
+
+  name[3] = 'e';
+  student s1(100,100,name);
+  s1.display();  
+
+  s->display();
+}
+
+
+   
